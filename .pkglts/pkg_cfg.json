@@ -1,0 +1,54 @@
+{
+  "_pkglts": {
+    "auto_install": true,
+    "install_front_end": "stdout",
+    "use_prompts": false,
+    "version": 12
+  },
+  "base": {
+    "authors": [
+      [
+        "Francesco Reyes",
+        "reyes.francesco@protonmail.com"
+      ],
+      [
+        "Benoit Pallas",
+        "benoit.pallas@inra.fr"
+      ],
+      [
+        "Christophe Pradal",
+        "christophe.pradal@cirad.fr"
+      ]
+    ],
+    "namespace": null,
+    "namespace_method": "pkg_util",
+    "pkgname": "musca",
+    "url": null
+  },
+  "doc": {
+    "description": "MuSCA: a multi-scale model to explore carbon allocation in plants",
+    "fmt": "rst",
+    "keywords": ["FSPM", "Carbon", "MTG", "RATP"]
+  },
+  "license": {
+    "name": "cecill-c",
+    "organization": "organization",
+    "project": "{{ base.pkgname }}",
+    "year": 2018
+  },
+  "pysetup": {
+    "intended_versions": [
+      "27",
+      "35"
+    ],
+    "require": []
+  },
+  "test": {
+    "suite_name": "nose"
+  },
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "post": 1
+  }
+}
