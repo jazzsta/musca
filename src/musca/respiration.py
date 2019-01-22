@@ -23,16 +23,15 @@ def m_respiration(dryweight, T2, organ_type):
 
     """
     MRR = {}
-    MRR["fruit"] = MRRfruit = 0.53         # gC gDM-1 s-1
-    MRR["leaf"] = MRRleaf = 0.32
-    MRR["nl"] = MRRnl = 0.13
-    MRR["current_year_shoot"] = MRRstem = 0.16
-    MRR["old_wood"] = MRRoldwood = 0.39
-    MRR["new_root"] = MRRnewroot = 0.99
-    MRR["root"] =MRRoldroot = 0.39
+    MRR["fruit"] = MRRfruit = 0.53e-8         # gC gDM-1 s-1
+    MRR["leaf"] = MRRleaf = 0.32e-7
+    MRR["nl"] = MRRnl = 0.13e-6
+    MRR["current_year_shoot"] = MRRstem = 0.16e-7
+    MRR["old_wood"] = MRRoldwood = 0.39e-8
+    MRR["new_root"] = MRRnewroot = 0.99e-8
+    MRR["root"] =MRRoldroot = 0.39e-8
 
     Q10 = {}
-
     Q10["fruit"] = Q10fruit = 1.731
     Q10["leaf"] = Q10leaf = 2.46
     Q10["nl"] = Q10nl = 2.34
