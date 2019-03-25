@@ -7,6 +7,7 @@ from past.utils import old_div
 import os
 import numpy as np
 from openalea.mtg import *
+from openalea.mtg import algo
 from random import random
 import time
 
@@ -29,7 +30,7 @@ Equation for allocation adapted ()
 Then verify how the model works with these changes
 """
 
-def compute_path(g,i,j):
+def compute_path(g,i,j, with_gca=True):
     """
     Compute topological path between two vertices
 
@@ -44,16 +45,23 @@ def compute_path(g,i,j):
         - When a branching point, in common between the ancestors of the vertices, is encountered, it is removed from the path.
 
     """
+
+
     list1 = g.Ancestors(i)
     list2 = g.Ancestors(j)
 
-    uniqueAncestors = list(set(g.Ancestors(i)) ^ set(g.Ancestors(j))) #Ancestors not in common between i and j
+    _gca_id = algo.lowestCommonAncestor(g, [i,j])
+    position1 = list1.index(_gca_id)
+    position2 = list2.index(_gca_id)
 
-    if i in uniqueAncestors:
-        uniqueAncestors.remove(i)
-    if j in uniqueAncestors:
-        uniqueAncestors.remove(j)
-    path = uniqueAncestors
+    path = list1[:position]+[_gca_id]+list(reversed(list2[:position]))
+    # uniqueAncestors = list(set(g.Ancestors(i)) ^ set(g.Ancestors(j))) #Ancestors not in common between i and j
+
+    # if i in uniqueAncestors:
+    #     uniqueAncestors.remove(i)
+    # if j in uniqueAncestors:
+    #     uniqueAncestors.remove(j)
+    # path = uniqueAncestors
     return(path)
 
 def bary_base(g, selected_scale):
@@ -416,7 +424,7 @@ def compute_geometrical_distance(g,i,j, selected_scale):
     else:                                                 #introduced to have distance from component to same component = 0
         geometrical_distance = 0                          #introduced to have distance from component to same component = 0
     for k in path :
-        node = g.vertices(k)
+        #node = g.vertices(k)
         geometrical_distance += length[k]
     return(geometrical_distance)
 
