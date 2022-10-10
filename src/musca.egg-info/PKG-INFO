@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: musca
+Version: 0.0.1
+Summary: MuSCA: a multi-scale model to explore carbon allocation in plants
+Home-page: UNKNOWN
+Author: Francesco Reyes
+Author-email: reyes.francesco@protonmail.com
+License: cecill-c
+Keywords: FSPM,Carbon,MTG,RATP
+Platform: UNKNOWN
+License-File: LICENSE
+License-File: AUTHORS.rst
+
+========================
+musca
+========================
+
+.. {# pkglts, doc
+
+.. #}
+
+belle petite description
+
+
+
+=======
+History
+=======
+
+creation (2018-10-08)
+------------------------
+
+* First release on PyPI.
+
+
