@@ -6,6 +6,14 @@ import time
 
 g = io.read_mtg_file("Med_cul10_1996_testcorrect.mtg")
 
+g = io.read_mtg_file("example2TA4.mtg")
+
+for v in range(0,g.nb_vertices()-1):
+    if g.node(v).FluxC is not None:
+        g.node(v).C_supply = g.node(v).FluxC*12.01
+        g.node(v).C_demand = 1
+
+
 
 def compute_path(g,i,j, with_gca=True):
     """
@@ -551,6 +559,8 @@ def C_allocation_SIMWAL2ses(g, h, selected_scale, Dists, group=False): #work in 
 
     nodes = set(g.vertices(scale=selected_scale))              # !! but the ID of new nodes is higher than the length of the vector of the nodes
     for Leaf in nodes: #supply:
+        g.node(Leaf).C_leftover = g.node(Leaf).C_supply
+        g.node(Leaf).C_allocation=0
         if True:#g.node(Leaf).leaf_area > 0:
             geo_dem_i_k = 0
             for Demand, dem_k in demand.items():   #Vertex i and its demand.
